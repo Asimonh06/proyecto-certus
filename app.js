@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
@@ -33,7 +34,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 app.use(cors())
 
-const MONGO_URI = "mongodb+srv://asimonh06:Operation7%3A@cluster0.o91pug4.mongodb.net/modulares?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI).then(()=>{
     console.log("Base de datos conectado ✔");
