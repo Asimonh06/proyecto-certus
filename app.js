@@ -16,6 +16,9 @@ const swaggerOptions = {
         servers: [
             {
                 url: 'http://localhost:4000'
+            },
+            {
+                url: 'https://proyecto-certus-production.up.railway.app/'
             }
         ]
     },
@@ -27,6 +30,8 @@ app.use(express.json())
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
+
+app.use(cors())
 
 const MONGO_URI = "mongodb+srv://asimonh06:Operation7%3A@cluster0.o91pug4.mongodb.net/modulares?retryWrites=true&w=majority&appName=Cluster0";
 
